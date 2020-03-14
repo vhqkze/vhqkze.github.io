@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Linux安装配置rime输入法 | V记</title>
+        <meta name="Description" content="vhqkze的笔记"><meta property="og:title" content="Linux安装配置rime输入法" />
+<meta property="og:description" content="安装 安装ibus-rime 1 sudo dnf install ibus-rime 重启ibus 1 ibus restart 进入设置，进入“区域与语言”设置，点击“输入源”下面的加号，在“添加输入源”中选择“汉" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.vhqkze.com/2019/linux%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AErime%E8%BE%93%E5%85%A5%E6%B3%95/" />
+<meta property="article:published_time" content="2019-05-04T19:58:28+00:00" />
+<meta property="article:modified_time" content="2019-05-04T19:58:28+00:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Linux安装配置rime输入法"/>
+<meta name="twitter:description" content="安装 安装ibus-rime 1 sudo dnf install ibus-rime 重启ibus 1 ibus restart 进入设置，进入“区域与语言”设置，点击“输入源”下面的加号，在“添加输入源”中选择“汉"/>
+<meta name="theme-color" content="#ffffff">
+<meta name="msapplication-TileColor" content="#da532c">
+<link rel="canonical" href="https://blog.vhqkze.com/2019/linux%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AErime%E8%BE%93%E5%85%A5%E6%B3%95/" />
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="prev" href="https://blog.vhqkze.com/2019/jmeter%E5%AE%89%E8%A3%85/" /><link rel="next" href="https://blog.vhqkze.com/2019/tigervnc%E4%BD%BF%E7%94%A8/" /><link rel="stylesheet" href="/lib/fontawesome-free/all.min.136b9c30040c88fbe8b7307ee691d31524a021442dd28291a0ee3d0b6d4b93e9.css" integrity="sha256-E2ucMAQMiPvotzB&#43;5pHTFSSgIUQt0oKRoO49C21Lk&#43;k="><link rel="stylesheet" href="/lib/fontawesome-free/all.min.136b9c30040c88fbe8b7307ee691d31524a021442dd28291a0ee3d0b6d4b93e9.css" integrity="sha256-E2ucMAQMiPvotzB&#43;5pHTFSSgIUQt0oKRoO49C21Lk&#43;k="><link rel="stylesheet" href="/css/style.min.d0122b7eadef854b954137621dbd0735aa3ef97c7fe0cb6681fd1f214237fa73.css" integrity="sha256-0BIrfq3vhUuVQTdiHb0HNao&#43;&#43;Xx/4Mtmgf0fIUI3&#43;nM="><meta name="google-site-verification" content="x66EVumyUgK_wWiHlaMh502D4bZZA7ymLVzhedBRfv0" /><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Linux安装配置rime输入法",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.vhqkze.com\/2019\/linux%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AErime%E8%BE%93%E5%85%A5%E6%B3%95\/"
+        },"image": {
+                "@type": "ImageObject",
+                "url": "https:\/\/blog.vhqkze.com\/cover.png",
+                "width":  800 ,
+                "height":  600 
+            },"genre": "posts","keywords": "Rime","wordcount":  716 ,
+        "url": "https:\/\/blog.vhqkze.com\/2019\/linux%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AErime%E8%BE%93%E5%85%A5%E6%B3%95\/","datePublished": "2019-05-04T19:58:28\x2b00:00","dateModified": "2019-05-04T19:58:28\x2b00:00","publisher": {
+                "@type": "Organization",
+                "name": "vhqkze",
+                "logo": {
+                "@type": "ImageObject",
+                "url": "https:\/\/blog.vhqkze.com\/logo.png",
+                "width":  127 ,
+                "height":  40 
+                }
+            },"description": ""
+    }
+    </script></head>
+    <body><script>
+            if (!window.localStorage || !window.localStorage.getItem('theme')) {window.isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;} else {
+                window.isDark = (window.localStorage && window.localStorage.getItem('theme')) === 'dark';
+            }
+            window.isDark && document.body.classList.add('dark-theme');
+        </script><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title animated bounceIn">
+            <a href="/">V记</a>
+        </div>
+        <div class="menu"><a class="menu-item" href="/posts/">文章</a><a class="menu-item" href="/tags/">标签</a><a class="menu-item" href="/categories/">分类</a><a class="menu-item" href="/about/">关于</a><a href="javascript:void(0);" class="theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw "></i>
+            </a>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-wrapper">
+        <div class="header-container">
+            <div class="header-title animated bounceIn">
+                <a href="/">V记</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a href="javascript:void(0);" class="theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a>
+        </div>
+    </div>
+</header>
+
+<script>
+    window.desktopHeaderMode = "fixed";
+    window.mobileHeaderMode = "auto";
+</script>
+<main class="main">
+                <div class="container"><article class="page single"><h1 class="single-title animated flipInX">Linux安装配置rime输入法</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://t.me/vhqkze" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>vhqkze</a>
+</span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i><time datetime=2019-05-04>2019-05-04</time>&nbsp;
+                <i class="fas fa-pencil-alt fa-fw"></i>约 716 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>预计阅读 2 分钟&nbsp;</div>
+        </div><div class="toc" id="toc-auto">
+                <h2 class="toc-title">目录</h2>
+                <div class="toc-content always-active" id="toc-content-auto"></div>
+            </div>
+            <div class="toc" id="toc-static">
+                <details>
+                    <summary>
+                        <div class="toc-title">
+                            <span>目录</span>
+                            <span><i class="details icon fas fa-angle-down"></i></span>
+                        </div>
+                    </summary>
+                    <div class="toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#安装">安装</a></li>
+    <li><a href="#定制rime">定制rime</a></li>
+    <li><a href="#参考">参考</a></li>
+  </ul>
+</nav></div>
+                </details>
+            </div><div class="content" id="content"><h2 id="安装">安装</h2>
+<p>安装ibus-rime</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo dnf install ibus-rime
+</code></pre></td></tr></table>
+</div>
+</div><p>重启ibus</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">ibus restart
+</code></pre></td></tr></table>
+</div>
+</div><p>进入设置，进入“区域与语言”设置，点击“输入源”下面的加号，在“添加输入源”中选择“汉语（中国）”，然后选则“中文（Rime）”，这样右上角的输入法托盘里面就可以切换输入法了。</p>
+<p>按组合键<code>Ctrl+`</code>或<code>F4</code>键唤出输入方案选单，由此调整Rime输入法最常用的选项。</p>
+<h2 id="定制rime">定制rime</h2>
+<p>和许多软件一样，Rime 的配置也是分「共享/系统」和「用户」的。比如对我的 Fedora 里的 ibus-rime 来说，系统配置位于 <code>/usr/share/rime-data</code> 目录下，而用户配置位于 <code>~/.config/ibus/rime</code> 目录下，后者的优先级高于前者。此外 ibus-rime 还会在启动时执行一次「部署」，根据原始配置和补丁文件，编译一份合并之后的配置（以及编译出来的二进制词库），放在 <code>~/.config/ibus/rime/build</code> 目录里。我想看看自己的补丁并入原文件之后最终的生效配置，就看这里面的文件。</p>
+<p>如果你改动了任意配置文件，也需要执行一次「部署」，让 Rime 重新编译新的配置并应用。</p>
+<p>Rime 的主要配置文件有这么几个：</p>
+<ul>
+<li>default.yaml —— 各方案共享的全局配置</li>
+<li>default.custom.yaml —— （可选）对 default.yaml 的「补丁」</li>
+<li>XXX.schema.yaml —— XXX 输入方案的配置</li>
+<li>XXX.custom.yaml —— （可选）对 XXX.schema.yaml 的「补丁」</li>
+<li>XXX.dict.yaml —— XXX 输入方案的词库（字典）</li>
+</ul>
+<p>进入用户配置目录，创建<code>default.custom.yaml</code>文件，里面写上以下内容：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="c"># default.custom.yaml</span><span class="w">
+</span><span class="w"></span><span class="c"># save it to: </span><span class="w">
+</span><span class="w"></span><span class="c">#   ~/.config/ibus/rime  (linux)</span><span class="w">
+</span><span class="w"></span><span class="c">#   ~/Library/Rime       (macos)</span><span class="w">
+</span><span class="w"></span><span class="c">#   %APPDATA%\Rime       (windows)</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">patch</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="k">schema_list</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span>- <span class="k">schema</span><span class="p">:</span><span class="w"> </span>luna_pinyin<span class="w">
+</span><span class="w">    </span>- <span class="k">schema</span><span class="p">:</span><span class="w"> </span>double_pinyin_flypy<span class="w">
+</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><p>创建<code>double_pinyin_flypy.custom.yaml</code>文件，里面写上以下内容：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="c"># double_pinyin_flypy.custom.yaml</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">patch</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="k">schema</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="k">name</span><span class="p">:</span><span class="w"> </span>小鹤双拼<span class="w">
+</span><span class="w">  </span><span class="k">punctuator</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="k">import_preset</span><span class="p">:</span><span class="w"> </span>symbols<span class="w">
+</span><span class="w">    </span><span class="k">half_shape</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="k">&#34;#&#34;: </span><span class="p">[</span><span class="s2">&#34;#&#34;</span><span class="p">]</span><span class="w">
+</span><span class="w">  </span><span class="k">recognizer</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="k">patterns</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="k">punct</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;^/([a-z]+|[0-9])$&#34;</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><h2 id="参考">参考</h2>
+<ul>
+<li><a href="https://github.com/rime/home/wiki/RimeWithSchemata" target="_blank" rel="noopener noreffer">Rime 必知必会</a>
+</li>
+<li><a href="https://rime.im/download/#linux" target="_blank" rel="noopener noreffer">Rime 下载及安装</a>
+</li>
+<li><a href="https://github.com/rime/home/wiki/CustomizationGuide" target="_blank" rel="noopener noreffer">Rime 定制指南</a>
+</li>
+<li><a href="https://github.com/LEOYoon-Tsaw/Rime_collections/blob/master/Rime_description.md" target="_blank" rel="noopener noreffer">schema详解</a>
+</li>
+</ul>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>本文于 2019-05-04 更新</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.vhqkze.com/2019/linux%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AErime%E8%BE%93%E5%85%A5%E6%B3%95/" data-title="Linux安装配置rime输入法" data-hashtags="Rime"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.vhqkze.com/2019/linux%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AErime%E8%BE%93%E5%85%A5%E6%B3%95/" data-hashtag="Rime"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="https://blog.vhqkze.com/2019/linux%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AErime%E8%BE%93%E5%85%A5%E6%B3%95/" data-title="Linux安装配置rime输入法"><i class="fab fa-evernote fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section><span>
+                        <a href="/tags/rime">
+                            <i class="fas fa-tag fa-fw"></i>Rime
+                        </a>
+                    </span>&nbsp;</section>
+        <section>
+            <span><a href="javascript:window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2019/jmeter%E5%AE%89%E8%A3%85/" class="prev" rel="prev" title="Jmeter安装"><i class="fas fa-angle-left fa-fw"></i>Jmeter安装</a>
+            <a href="/2019/tigervnc%E4%BD%BF%E7%94%A8/" class="next" rel="next" title="TigerVNC使用">TigerVNC使用<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div class="comment"></div>
+    </article></div>
+            </main><footer class="footer">
+    <div class="copyright"><div class="copyright-line">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="external nofollow noopener noreffer">LoveIt<i class="far fa-heart fa-fw"></i></a>
+        </div>
+
+        <div class="copyright-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://t.me/vhqkze" target="_blank">vhqkze</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+    </div>
+</footer>
+</div><a href="#" class="dynamic-to-top animated faster" id="dynamic-to-top">
+            <span>&nbsp;</span>
+        </a><script>
+        document.addEventListener('DOMContentLoaded', function () {
+            lightGallery(document.getElementById('content'), {
+                selector: '.lightgallery',
+                speed: 400,
+                hideBarsDelay: 2000,
+                thumbnail: true,
+                exThumbImage: 'data-thumbnail',
+                thumbWidth: 80,
+                thumbContHeight: 80,
+            });
+        });
+    </script><script>
+        document.addEventListener('DOMContentLoaded', function () {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    { left: '$$', right: '$$', display: true },
+                    { left: '\\[', right: '\\]', display: true },{ left: '$', right: '$', display: false },
+                    { left: '\\(', right: '\\)', display: false },],
+                strict: false,
+            });
+        });
+    </script><link rel="stylesheet" href="/lib/lightgallery/lightgallery.min.d1fbdffde72e1d2dda014371221ceae98386f7a921cc8ba9dcf62704ec90cb46.css" integrity="sha256-0fvf/ecuHS3aAUNxIhzq6YOG96khzIup3PYnBOyQy0Y="><link rel="stylesheet" href="/lib/katex/katex.min.4710034e669c7ff17f823f9ba12cf8a36582d65b007f79cbc4a3c11d7db2e4ca.css" integrity="sha256-RxADTmacf/F/gj&#43;boSz4o2WC1lsAf3nLxKPBHX2y5Mo="><link rel="stylesheet" href="/lib/katex/copy-tex.min.bf9ff4137fec38f6255419e142d0883c9c52090885d746f80eee12b273d9b3e0.css" integrity="sha256-v5/0E3/sOPYlVBnhQtCIPJxSCQiF10b4Du4SsnPZs&#43;A="><script src="/lib/smooth-scroll/smooth-scroll.polyfills.min.54590077ee163035c3dd38dc034e9f6915ecbe680dd832f449afa21672cab116.js" integrity="sha256-VFkAd&#43;4WMDXD3TjcA06faRXsvmgN2DL0Sa&#43;iFnLKsRY="></script><script src="/lib/sharer/sharer.min.9c88f86c7f0820287113f6236200459832693656e80d7556cc80a93dfbd45813.js" integrity="sha256-nIj4bH8IIChxE/YjYgBFmDJpNlboDXVWzICpPfvUWBM="></script><script src="/lib/lazysizes/lazysizes.min.876b4c12685e991d88378c1b6dd3638fd2da0c88f3c24da1ada950c1f26604e1.js" integrity="sha256-h2tMEmhemR2IN4wbbdNjj9LaDIjzwk2hralQwfJmBOE="></script><script src="/lib/lightgallery/lightgallery.min.7a84c63ab156d68e4a7269487c9c65a4eb34b0c7864f2d3fd2b87f7c664480d3.js" integrity="sha256-eoTGOrFW1o5KcmlIfJxlpOs0sMeGTy0/0rh/fGZEgNM="></script><script src="/lib/lightgallery/lg-thumbnail.min.eab31af8f90835b7ab674b2dd2474841039bc01022aa312f80dde6e22fde58d7.js" integrity="sha256-6rMa&#43;PkINberZ0st0kdIQQObwBAiqjEvgN3m4i/eWNc="></script><script src="/lib/lightgallery/lg-zoom.min.e3a7e6bb4a69f8627654ba9e0ab1252971bcfb400538dbb0605db9a3342ce5b9.js" integrity="sha256-46fmu0pp&#43;GJ2VLqeCrElKXG8&#43;0AFONuwYF25ozQs5bk="></script><script src="/lib/katex/katex.min.17f5dd6b9f123dd7140abfb18521b3f4c036cd004f6f40121182a8865f140877.js" integrity="sha256-F/Xda58SPdcUCr&#43;xhSGz9MA2zQBPb0ASEYKohl8UCHc="></script><script src="/lib/katex/auto-render.min.f74776a677f0d2be0af0264058f928e2ba455d0b19bc985304660d922a43a6b2.js" integrity="sha256-90d2pnfw0r4K8CZAWPko4rpFXQsZvJhTBGYNkipDprI="></script><script src="/lib/katex/copy-tex.min.2ab2237329021bc443986c8327f6e61357fb68a54e5d233d224023718c02207d.js" integrity="sha256-KrIjcykCG8RDmGyDJ/bmE1f7aKVOXSM9IkAjcYwCIH0="></script><script src="/lib/katex/mhchem.min.5cea356d6025c5a2f18c454c83ec5674dbb04fab1cd1d75569e77788c6b6f888.js" integrity="sha256-XOo1bWAlxaLxjEVMg&#43;xWdNuwT6sc0ddVaed3iMa2&#43;Ig="></script><script src="/js/theme.min.b08626c9e44518ec927ccdcf23bfd5df31e16e93cbadb1e1a2f84a970e62d2ac.js" integrity="sha256-sIYmyeRFGOySfM3PI7/V3zHhbpPLrbHhovhKlw5i0qw="></script></body>
+</html>

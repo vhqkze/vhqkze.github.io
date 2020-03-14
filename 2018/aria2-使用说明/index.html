@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Aria2 使用说明 | V记</title>
+        <meta name="Description" content="vhqkze的笔记"><meta property="og:title" content="Aria2 使用说明" />
+<meta property="og:description" content="外部链接 aria2 官网 aria2 github地址 Aria2 &amp; YAAW 使用说明 Aria2 安装 方式一，直接从源中安装 1 sudo apt install aria2 方式二，编译安装 Aria2 配置说明 首先为 aria2 创建配置存放的目录，新" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.vhqkze.com/2018/aria2-%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/" />
+<meta property="article:published_time" content="2018-01-02T22:16:55+00:00" />
+<meta property="article:modified_time" content="2018-01-02T22:16:55+00:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Aria2 使用说明"/>
+<meta name="twitter:description" content="外部链接 aria2 官网 aria2 github地址 Aria2 &amp; YAAW 使用说明 Aria2 安装 方式一，直接从源中安装 1 sudo apt install aria2 方式二，编译安装 Aria2 配置说明 首先为 aria2 创建配置存放的目录，新"/>
+<meta name="theme-color" content="#ffffff">
+<meta name="msapplication-TileColor" content="#da532c">
+<link rel="canonical" href="https://blog.vhqkze.com/2018/aria2-%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/" />
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="prev" href="https://blog.vhqkze.com/2017/raspberrypi/" /><link rel="next" href="https://blog.vhqkze.com/2018/linux-service%E7%9A%84%E7%9B%B8%E5%85%B3%E4%BD%BF%E7%94%A8/" /><link rel="stylesheet" href="/lib/fontawesome-free/all.min.136b9c30040c88fbe8b7307ee691d31524a021442dd28291a0ee3d0b6d4b93e9.css" integrity="sha256-E2ucMAQMiPvotzB&#43;5pHTFSSgIUQt0oKRoO49C21Lk&#43;k="><link rel="stylesheet" href="/lib/fontawesome-free/all.min.136b9c30040c88fbe8b7307ee691d31524a021442dd28291a0ee3d0b6d4b93e9.css" integrity="sha256-E2ucMAQMiPvotzB&#43;5pHTFSSgIUQt0oKRoO49C21Lk&#43;k="><link rel="stylesheet" href="/css/style.min.d0122b7eadef854b954137621dbd0735aa3ef97c7fe0cb6681fd1f214237fa73.css" integrity="sha256-0BIrfq3vhUuVQTdiHb0HNao&#43;&#43;Xx/4Mtmgf0fIUI3&#43;nM="><meta name="google-site-verification" content="x66EVumyUgK_wWiHlaMh502D4bZZA7ymLVzhedBRfv0" /><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Aria2 使用说明",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.vhqkze.com\/2018\/aria2-%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E\/"
+        },"image": {
+                "@type": "ImageObject",
+                "url": "https:\/\/blog.vhqkze.com\/cover.png",
+                "width":  800 ,
+                "height":  600 
+            },"genre": "posts","keywords": "Linux, Aria2","wordcount":  1929 ,
+        "url": "https:\/\/blog.vhqkze.com\/2018\/aria2-%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E\/","datePublished": "2018-01-02T22:16:55\x2b00:00","dateModified": "2018-01-02T22:16:55\x2b00:00","publisher": {
+                "@type": "Organization",
+                "name": "vhqkze",
+                "logo": {
+                "@type": "ImageObject",
+                "url": "https:\/\/blog.vhqkze.com\/logo.png",
+                "width":  127 ,
+                "height":  40 
+                }
+            },"description": ""
+    }
+    </script></head>
+    <body><script>
+            if (!window.localStorage || !window.localStorage.getItem('theme')) {window.isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;} else {
+                window.isDark = (window.localStorage && window.localStorage.getItem('theme')) === 'dark';
+            }
+            window.isDark && document.body.classList.add('dark-theme');
+        </script><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title animated bounceIn">
+            <a href="/">V记</a>
+        </div>
+        <div class="menu"><a class="menu-item" href="/posts/">文章</a><a class="menu-item" href="/tags/">标签</a><a class="menu-item" href="/categories/">分类</a><a class="menu-item" href="/about/">关于</a><a href="javascript:void(0);" class="theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw "></i>
+            </a>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-wrapper">
+        <div class="header-container">
+            <div class="header-title animated bounceIn">
+                <a href="/">V记</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a href="javascript:void(0);" class="theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a>
+        </div>
+    </div>
+</header>
+
+<script>
+    window.desktopHeaderMode = "fixed";
+    window.mobileHeaderMode = "auto";
+</script>
+<main class="main">
+                <div class="container"><article class="page single"><h1 class="single-title animated flipInX">Aria2 使用说明</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://t.me/vhqkze" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>vhqkze</a>
+</span>&nbsp;<span class="post-category">收录于&nbsp;
+                            <span>
+                                <a href="/categories/linux">
+                                    <i class="far fa-folder fa-fw"></i>Linux
+                                </a>
+                            </span></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i><time datetime=2018-01-02>2018-01-02</time>&nbsp;
+                <i class="fas fa-pencil-alt fa-fw"></i>约 1929 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>预计阅读 4 分钟&nbsp;</div>
+        </div><div class="toc" id="toc-auto">
+                <h2 class="toc-title">目录</h2>
+                <div class="toc-content always-active" id="toc-content-auto"></div>
+            </div>
+            <div class="toc" id="toc-static">
+                <details>
+                    <summary>
+                        <div class="toc-title">
+                            <span>目录</span>
+                            <span><i class="details icon fas fa-angle-down"></i></span>
+                        </div>
+                    </summary>
+                    <div class="toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#外部链接">外部链接</a></li>
+    <li><a href="#aria2-安装">Aria2 安装</a></li>
+    <li><a href="#aria2-配置说明">Aria2 配置说明</a></li>
+    <li><a href="#启动-aria2">启动 Aria2</a></li>
+    <li><a href="#aria2-连接">Aria2 连接</a></li>
+    <li><a href="#远程访问aria2">远程访问aria2</a></li>
+  </ul>
+</nav></div>
+                </details>
+            </div><div class="content" id="content"><h2 id="外部链接">外部链接</h2>
+<ul>
+<li><a href="https://aria2.github.io/" target="_blank" rel="noopener noreffer">aria2 官网</a>
+</li>
+<li><a href="https://github.com/aria2/aria2" target="_blank" rel="noopener noreffer">aria2 github地址</a>
+</li>
+<li><a href="https://aria2c.com/usage.html" target="_blank" rel="noopener noreffer">Aria2 &amp; YAAW 使用说明</a>
+</li>
+</ul>
+<h2 id="aria2-安装">Aria2 安装</h2>
+<ul>
+<li>方式一，直接从源中安装
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo apt install aria2
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>方式二，编译安装</li>
+</ul>
+<h2 id="aria2-配置说明">Aria2 配置说明</h2>
+<p>首先为 aria2 创建配置存放的目录，新建必要文件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">cd</span> ~
+mkdir ./.aria2
+<span class="nb">cd</span> ./.aria2
+touch aria2.conf
+touch aria2.log
+touch aria2.session
+</code></pre></td></tr></table>
+</div>
+</div><p>编辑 <code>aria2.conf</code> 文件，复制以下内容并保存</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span><span class="lnt">121
+</span><span class="lnt">122
+</span><span class="lnt">123
+</span><span class="lnt">124
+</span><span class="lnt">125
+</span><span class="lnt">126
+</span><span class="lnt">127
+</span><span class="lnt">128
+</span><span class="lnt">129
+</span><span class="lnt">130
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-nginx" data-lang="nginx"><span class="c1">## RPC相关设置 ##
+</span><span class="c1"></span>
+<span class="c1"># 允许rpc
+</span><span class="c1"></span><span class="k">enable-rpc=true</span>
+<span class="c1"># 允许所有来源, web界面跨域权限需要
+</span><span class="c1"></span><span class="s">rpc-allow-origin-all=true</span>
+<span class="c1"># 允许非外部访问
+</span><span class="c1"></span><span class="s">rpc-listen-all=true</span>
+<span class="c1">#RPC端口, 仅当默认端口被占用时修改，默认6800
+</span><span class="c1"></span><span class="s">rpc-listen-port=6800</span>
+<span class="c1"># 用户名
+</span><span class="c1">#rpc-user=username
+</span><span class="c1"># 密码
+</span><span class="c1">#rpc-passwd=passwd
+</span><span class="c1"># 设置的RPC授权令牌, v1.18.4新增功能, 取代 --rpc-user 和 --rpc-passwd 选项
+</span><span class="c1"></span><span class="s">rpc-secret=yourpassword</span>
+<span class="c1"># 是否启用 RPC 服务的 SSL/TLS 加密,
+</span><span class="c1"># 启用加密后 RPC 服务需要使用 https 或者 wss 协议连接
+</span><span class="c1">#rpc-secure=true
+</span><span class="c1"># 在 RPC 服务中启用 SSL/TLS 加密时的证书文件,
+</span><span class="c1"># 使用 PEM 格式时，您必须通过 --rpc-private-key 指定私钥
+</span><span class="c1">#rpc-certificate=/path/to/certificate.pem
+</span><span class="c1"># 在 RPC 服务中启用 SSL/TLS 加密时的私钥文件
+</span><span class="c1">#rpc-private-key=/path/to/certificate.key
+</span><span class="c1"></span>
+
+<span class="c1">## 连接设置 ##
+</span><span class="c1"></span>
+<span class="c1"># 最大同时下载数(任务数), 路由建议值: 3
+</span><span class="c1"></span><span class="s">max-concurrent-downloads=8</span>
+<span class="c1"># 断点续传
+</span><span class="c1"></span><span class="s">continue=true</span>
+<span class="c1"># 同一服务器连接数, 添加时可指定, 默认:1
+</span><span class="c1"></span><span class="s">max-connection-per-server=12</span>
+<span class="c1"># 最小文件分片大小, 添加时可指定, 取值范围1M -1024M, 默认:20M
+</span><span class="c1"># 假定size=10M, 文件为20MiB 则使用两个来源下载; 文件为15MiB 则使用一个来源下载
+</span><span class="c1"># 下载线程数上限取决于能分出多少片, 对于小文件重要
+</span><span class="c1"></span><span class="s">min-split-size=10M</span>
+<span class="c1"># 单文件最大线程数, 添加时可指定，默认: 5
+</span><span class="c1"></span><span class="s">split=10</span>
+<span class="c1"># 整体下载速度限制, 运行时可修改, 默认:0
+</span><span class="c1"></span><span class="s">max-overall-download-limit=0</span>
+<span class="c1"># 单个任务下载速度限制, 默认:0
+</span><span class="c1"></span><span class="s">max-download-limit=0</span>
+<span class="c1"># 整体上传速度限制, 运行时可修改, 默认:0
+</span><span class="c1"></span><span class="s">max-overall-upload-limit=102400</span>
+<span class="c1"># 单个任务上传速度限制, 默认:0
+</span><span class="c1"></span><span class="s">max-upload-limit=0</span>
+<span class="c1"># 禁用IPv6, 默认:false
+</span><span class="c1">#disable-ipv6=true
+</span><span class="c1"># 连接超时时间, 默认:60
+</span><span class="c1">#timeout=60
+</span><span class="c1"># 最大重试次数, 设置为0表示不限制重试次数, 默认:5
+</span><span class="c1">#max-tries=5
+</span><span class="c1"># 设置重试等待的秒数, 默认:0
+</span><span class="c1">#retry-wait=0
+</span><span class="c1"># 断开速度过慢的连接
+</span><span class="c1">#lowest-speed-limit=0
+</span><span class="c1"># 运行覆盖已存在文件
+</span><span class="c1">#allow-overwrite=true
+</span><span class="c1"># 验证用，需要1.16.1之后的release版本
+</span><span class="c1">#referer=*
+</span><span class="c1"></span>
+
+<span class="c1">## 文件保存设置 ##
+</span><span class="c1"></span>
+<span class="c1"># 文件保存路径, 默认为当前启动位置
+</span><span class="c1"></span><span class="s">dir=/home/pi/Downloads</span>
+<span class="s">log=/home/pi/.aria2/aria2.log</span>
+<span class="s">log-level=error</span>
+<span class="c1"># 从会话文件中读取下载任务
+</span><span class="c1"></span><span class="s">input-file=/home/pi/.aria2/aria2.session</span>
+<span class="c1"># 在Aria2退出时保存`错误/未完成`的下载任务到会话文件
+</span><span class="c1"></span><span class="s">save-session=/home/pi/.aria2/aria2.session</span>
+<span class="c1"># 定时保存会话, 0为退出时才保存, 需1.16.1以上版本, 默认:0
+</span><span class="c1"></span><span class="s">save-session-interval=60</span>
+
+<span class="c1"># 启用磁盘缓存, 0为禁用缓存, 需1.16以上版本, 默认:16M
+</span><span class="c1">#disk-cache=32M
+</span><span class="c1"># 文件预分配, 能有效降低文件碎片, 提高磁盘性能. 缺点是预分配时间较长
+</span><span class="c1"># 所需时间 none &lt; falloc ? trunc &lt;&lt; prealloc, falloc和trunc需要文件系统和内核支持
+</span><span class="c1"># NTFS建议使用falloc, EXT3/4建议trunc, MAC 下需要注释此项
+</span><span class="c1"></span><span class="s">file-allocation=trunc</span>
+
+
+<span class="c1">## bt下载相关 ##
+</span><span class="c1"></span>
+<span class="c1"># 本地节点查找, PT需要禁用, 默认:false
+</span><span class="c1"></span><span class="s">bt-enable-lpd=true</span>
+<span class="c1"># 添加额外的tracker
+</span><span class="c1">#bt-tracker=&lt;URI&gt;,…
+</span><span class="c1"># 单个种子最大连接数，默认55
+</span><span class="c1"></span><span class="s">bt-max-peers=180</span>
+<span class="c1"># 每个种子限速, 对少种的PT很有用, 默认:50K
+</span><span class="c1">#bt-request-peer-speed-limit=50K
+</span><span class="c1"># 强制加密, 防迅雷必备
+</span><span class="c1"></span><span class="s">bt-require-crypto=true</span>
+<span class="c1"># 当下载的文件是一个种子(以.torrent结尾)时, 自动下载BT
+</span><span class="c1"></span><span class="s">follow-torrent=true</span>
+<span class="c1"># BT监听端口, 当端口屏蔽时使用，默认:6881-6999
+</span><span class="c1">#listen-port=6881-6999
+</span><span class="c1"># 打开DHT功能, PT需要禁用, 默认:true
+</span><span class="c1"></span><span class="s">enable-dht=true</span>
+<span class="c1"># 打开IPv6 DHT功能, PT需要禁用
+</span><span class="c1">#enable-dht6=false
+</span><span class="c1"># DHT网络监听端口, 默认:6881-6999
+</span><span class="c1">#dht-listen-port=6881-6999
+</span><span class="c1"></span>
+<span class="c1"># 本地节点查找, PT需要禁用, 默认:false
+</span><span class="c1"></span><span class="s">bt-enable-lpd=true</span>
+<span class="c1"># 种子交换, PT需要禁用, 默认:true
+</span><span class="c1"></span><span class="s">enable-peer-exchange=true</span>
+
+<span class="c1"># 客户端伪装, PT需要
+</span><span class="c1"># user-agent=Transmission/2.77
+</span><span class="c1"># peer-id-prefix=-TR2770-
+</span><span class="c1"></span><span class="s">user-agent=uTorrent/2210(25130)</span>
+<span class="s">peer-id-prefix=-UT2210-</span>
+
+<span class="c1"># 当种子的分享率达到这个数时, 自动停止做种, 0为一直做种, 默认:1.0
+</span><span class="c1"></span><span class="s">seed-ratio=0.1</span>
+<span class="c1"># 强制保存会话, 即使任务已经完成, 默认:false
+</span><span class="c1"># 较新的版本开启后会在任务完成后依然保留.aria2文件
+</span><span class="c1"></span><span class="s">force-save=false</span>
+<span class="c1"># BT校验相关, 默认:true
+</span><span class="c1"></span><span class="s">bt-hash-check-seed=true</span>
+<span class="c1"># 继续之前的BT任务时, 无需再次校验, 默认:false
+</span><span class="c1"></span><span class="s">bt-seed-unverified=true</span>
+<span class="c1"># 保存磁力链接元数据为种子文件(.torrent文件), 默认:false
+</span><span class="c1"></span><span class="s">bt-save-metadata=false</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="启动-aria2">启动 Aria2</h2>
+<p>执行 <code>aria2c --conf-path=/home/pi/.aria2/aria2.conf -D</code> 命令，可以让aria2后台运行。
+如果想要开机启动，ubuntu 下编辑 <code>/etc/rc.local</code> 文件，在 <code>exit 0</code> 前面加入下面一行</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">aria2c --conf-path<span class="o">=</span>/home/pi/.aria2/aria2.conf -D
+</code></pre></td></tr></table>
+</div>
+</div><p>如果是在windows系统上，新建文件 <code>隐藏运行aria2.vbs</code>，复制以下内容并保存，如果需要开机启动，将<code>隐藏运行aria2.vbs</code>文件创建快捷方式，将快捷方式移动到启动文件夹里。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">CreateObject(&#34;WScript.Shell&#34;).Run &#34;E:\Downloads\aria2\aria2c.exe --conf-path=E:\Downloads\aria2\aria2.conf&#34;,0
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="aria2-连接">Aria2 连接</h2>
+<p>JSON-RPC Path 默认为: <code>http://localhost:6800/jsonrpc</code>
+如果提示 <code>Aria2 RPC 服务器错误</code> 按照以下方法修改</p>
+<ul>
+<li>host: 指运行 Aria2 所在机器的 <code>IP</code> 或者名字</li>
+<li>port: 使用 <code>--rpc-listen-port</code> 选项设置的端口, 未设置则是 <code>6800</code></li>
+<li>普通情况设置为: <code>http://host:port/jsonrpc</code></li>
+<li>使用 <code>--rpc-secret=xxxxxx</code> 选项设置为: <code>http://token:xxxxxx@host:port/jsonrpc</code></li>
+<li>使用 <code>--rpc-user=user --rpc-passwd=pwd</code> 选项设置为: <code>http://user:pwd@host:port/jsonrpc</code></li>
+<li>以上 JSON-RPC Path 中的 <code>http</code> 可以用 <code>ws</code> 替代, 代表使用 <code>WebSocket</code> 协议</li>
+<li>当使用 <code>https://aria2c.com</code> 访问时, 需要使用 <code>https</code> 或 <code>wss</code> 协议</li>
+</ul>
+<h2 id="远程访问aria2">远程访问aria2</h2>
+<ul>
+<li>AriaNg <a href="https://github.com/mayswind/AriaNg" target="_blank" rel="noopener noreffer">github地址</a>
+</li>
+<li>webui-aria2 <a href="https://github.com/ziahamza/webui-aria2" target="_blank" rel="noopener noreffer">github地址</a>
+ <a href="https://ziahamza.github.io/webui-aria2/" target="_blank" rel="noopener noreffer">临时使用地址</a>
+</li>
+<li>YAAW <a href="https://github.com/binux/yaaw" target="_blank" rel="noopener noreffer">github地址</a>
+ <a href="http://binux.github.io/yaaw/demo/" target="_blank" rel="noopener noreffer">临时使用地址</a>
+</li>
+<li>YAAW中文版 <a href="https://github.com/aa65535/yaaw-zh-hans" target="_blank" rel="noopener noreffer">github地址</a>
+ <a href="http://aria2c.com/" target="_blank" rel="noopener noreffer">http版</a>
+    <a href="https://aria2c.com/" target="_blank" rel="noopener noreffer">https版</a>
+</li>
+<li>YAAW for Chrome <a href="https://github.com/acgotaku/YAAW-for-Chrome" target="_blank" rel="noopener noreffer">github地址</a>
+ <a href="https://chrome.google.com/webstore/detail/yaaw-for-chrome/dennnbdlpgjgbcjfgaohdahloollfgoc" target="_blank" rel="noopener noreffer">Chrome store</a>
+</li>
+</ul>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>本文于 2018-01-02 更新</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://blog.vhqkze.com/2018/aria2-%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/" data-title="Aria2 使用说明" data-hashtags="Linux,Aria2"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://blog.vhqkze.com/2018/aria2-%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/" data-hashtag="Linux"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="https://blog.vhqkze.com/2018/aria2-%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/" data-title="Aria2 使用说明"><i class="fab fa-evernote fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section><span>
+                        <a href="/tags/linux">
+                            <i class="fas fa-tag fa-fw"></i>Linux
+                        </a>
+                    </span>&nbsp;<span>
+                        <a href="/tags/aria2">
+                            <i class="fas fa-tag fa-fw"></i>Aria2
+                        </a>
+                    </span>&nbsp;</section>
+        <section>
+            <span><a href="javascript:window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2017/raspberrypi/" class="prev" rel="prev" title="树莓派"><i class="fas fa-angle-left fa-fw"></i>树莓派</a>
+            <a href="/2018/linux-service%E7%9A%84%E7%9B%B8%E5%85%B3%E4%BD%BF%E7%94%A8/" class="next" rel="next" title="Linux service的相关使用">Linux service的相关使用<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div class="comment"></div>
+    </article></div>
+            </main><footer class="footer">
+    <div class="copyright"><div class="copyright-line">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="external nofollow noopener noreffer">LoveIt<i class="far fa-heart fa-fw"></i></a>
+        </div>
+
+        <div class="copyright-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://t.me/vhqkze" target="_blank">vhqkze</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+    </div>
+</footer>
+</div><a href="#" class="dynamic-to-top animated faster" id="dynamic-to-top">
+            <span>&nbsp;</span>
+        </a><script>
+        document.addEventListener('DOMContentLoaded', function () {
+            lightGallery(document.getElementById('content'), {
+                selector: '.lightgallery',
+                speed: 400,
+                hideBarsDelay: 2000,
+                thumbnail: true,
+                exThumbImage: 'data-thumbnail',
+                thumbWidth: 80,
+                thumbContHeight: 80,
+            });
+        });
+    </script><script>
+        document.addEventListener('DOMContentLoaded', function () {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    { left: '$$', right: '$$', display: true },
+                    { left: '\\[', right: '\\]', display: true },{ left: '$', right: '$', display: false },
+                    { left: '\\(', right: '\\)', display: false },],
+                strict: false,
+            });
+        });
+    </script><link rel="stylesheet" href="/lib/lightgallery/lightgallery.min.d1fbdffde72e1d2dda014371221ceae98386f7a921cc8ba9dcf62704ec90cb46.css" integrity="sha256-0fvf/ecuHS3aAUNxIhzq6YOG96khzIup3PYnBOyQy0Y="><link rel="stylesheet" href="/lib/katex/katex.min.4710034e669c7ff17f823f9ba12cf8a36582d65b007f79cbc4a3c11d7db2e4ca.css" integrity="sha256-RxADTmacf/F/gj&#43;boSz4o2WC1lsAf3nLxKPBHX2y5Mo="><link rel="stylesheet" href="/lib/katex/copy-tex.min.bf9ff4137fec38f6255419e142d0883c9c52090885d746f80eee12b273d9b3e0.css" integrity="sha256-v5/0E3/sOPYlVBnhQtCIPJxSCQiF10b4Du4SsnPZs&#43;A="><script src="/lib/smooth-scroll/smooth-scroll.polyfills.min.54590077ee163035c3dd38dc034e9f6915ecbe680dd832f449afa21672cab116.js" integrity="sha256-VFkAd&#43;4WMDXD3TjcA06faRXsvmgN2DL0Sa&#43;iFnLKsRY="></script><script src="/lib/sharer/sharer.min.9c88f86c7f0820287113f6236200459832693656e80d7556cc80a93dfbd45813.js" integrity="sha256-nIj4bH8IIChxE/YjYgBFmDJpNlboDXVWzICpPfvUWBM="></script><script src="/lib/lazysizes/lazysizes.min.876b4c12685e991d88378c1b6dd3638fd2da0c88f3c24da1ada950c1f26604e1.js" integrity="sha256-h2tMEmhemR2IN4wbbdNjj9LaDIjzwk2hralQwfJmBOE="></script><script src="/lib/lightgallery/lightgallery.min.7a84c63ab156d68e4a7269487c9c65a4eb34b0c7864f2d3fd2b87f7c664480d3.js" integrity="sha256-eoTGOrFW1o5KcmlIfJxlpOs0sMeGTy0/0rh/fGZEgNM="></script><script src="/lib/lightgallery/lg-thumbnail.min.eab31af8f90835b7ab674b2dd2474841039bc01022aa312f80dde6e22fde58d7.js" integrity="sha256-6rMa&#43;PkINberZ0st0kdIQQObwBAiqjEvgN3m4i/eWNc="></script><script src="/lib/lightgallery/lg-zoom.min.e3a7e6bb4a69f8627654ba9e0ab1252971bcfb400538dbb0605db9a3342ce5b9.js" integrity="sha256-46fmu0pp&#43;GJ2VLqeCrElKXG8&#43;0AFONuwYF25ozQs5bk="></script><script src="/lib/katex/katex.min.17f5dd6b9f123dd7140abfb18521b3f4c036cd004f6f40121182a8865f140877.js" integrity="sha256-F/Xda58SPdcUCr&#43;xhSGz9MA2zQBPb0ASEYKohl8UCHc="></script><script src="/lib/katex/auto-render.min.f74776a677f0d2be0af0264058f928e2ba455d0b19bc985304660d922a43a6b2.js" integrity="sha256-90d2pnfw0r4K8CZAWPko4rpFXQsZvJhTBGYNkipDprI="></script><script src="/lib/katex/copy-tex.min.2ab2237329021bc443986c8327f6e61357fb68a54e5d233d224023718c02207d.js" integrity="sha256-KrIjcykCG8RDmGyDJ/bmE1f7aKVOXSM9IkAjcYwCIH0="></script><script src="/lib/katex/mhchem.min.5cea356d6025c5a2f18c454c83ec5674dbb04fab1cd1d75569e77788c6b6f888.js" integrity="sha256-XOo1bWAlxaLxjEVMg&#43;xWdNuwT6sc0ddVaed3iMa2&#43;Ig="></script><script src="/js/theme.min.b08626c9e44518ec927ccdcf23bfd5df31e16e93cbadb1e1a2f84a970e62d2ac.js" integrity="sha256-sIYmyeRFGOySfM3PI7/V3zHhbpPLrbHhovhKlw5i0qw="></script></body>
+</html>
