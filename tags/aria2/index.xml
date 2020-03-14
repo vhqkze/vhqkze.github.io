@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Aria2 on V记</title>
+    <link>https://blog.vhqkze.com/tags/aria2/</link>
+    <description>Recent content in Aria2 on V记</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 02 Jan 2018 22:16:55 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.vhqkze.com/tags/aria2/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Aria2 使用说明</title>
+      <link>https://blog.vhqkze.com/2018/aria2-%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/</link>
+      <pubDate>Tue, 02 Jan 2018 22:16:55 +0000</pubDate>
+      
+      <guid>https://blog.vhqkze.com/2018/aria2-%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/</guid>
+      <description>外部链接 aria2 官网 aria2 github地址 Aria2 &amp;amp; YAAW 使用说明 Aria2 安装 方式一，直接从源中安装 1 sudo apt install aria2 方式二，编译安装 Aria2 配置说明 首先为 aria2 创建配置存放的目录，新</description>
+    </item>
+    
+  </channel>
+</rss>

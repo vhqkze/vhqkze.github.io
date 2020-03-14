@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Raspberry Pi on V记</title>
+    <link>https://blog.vhqkze.com/tags/raspberry-pi/</link>
+    <description>Recent content in Raspberry Pi on V记</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Fri, 15 Jun 2018 18:24:14 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.vhqkze.com/tags/raspberry-pi/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Raspberry Pi Zero W 的首次安装启动</title>
+      <link>https://blog.vhqkze.com/2018/raspberry-pi-zero-w-%E7%9A%84%E9%A6%96%E6%AC%A1%E5%AE%89%E8%A3%85%E5%90%AF%E5%8A%A8/</link>
+      <pubDate>Fri, 15 Jun 2018 18:24:14 +0000</pubDate>
+      
+      <guid>https://blog.vhqkze.com/2018/raspberry-pi-zero-w-%E7%9A%84%E9%A6%96%E6%AC%A1%E5%AE%89%E8%A3%85%E5%90%AF%E5%8A%A8/</guid>
+      <description>刻录系统 到树莓派官网下载系统，使用 etcher 工具刻录系统。我下载的是2018-04-18 raspbian stretch lite版本。 设置开机自动连接WIFI 因为zero W 没有</description>
+    </item>
+    
+    <item>
+      <title>树莓派</title>
+      <link>https://blog.vhqkze.com/2017/raspberrypi/</link>
+      <pubDate>Fri, 15 Dec 2017 20:00:43 +0000</pubDate>
+      
+      <guid>https://blog.vhqkze.com/2017/raspberrypi/</guid>
+      <description>##常用配置 1 2 3 4 5 6 7 8 9 10 11 12 13 # 系统配置 sudo raspi-config # 查看所有服务状态 sudo service --status-all # 查看所有开机启动的服务 sudo systemctl list-unit-files --type=service | grep enabled # 配置开机启动（无效） sudo sysv-rc-conf</description>
+    </item>
+    
+  </channel>
+</rss>

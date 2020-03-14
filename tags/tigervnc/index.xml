@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>TigerVNC on V记</title>
+    <link>https://blog.vhqkze.com/tags/tigervnc/</link>
+    <description>Recent content in TigerVNC on V记</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Mon, 23 Dec 2019 22:53:34 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.vhqkze.com/tags/tigervnc/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>TigerVNC使用</title>
+      <link>https://blog.vhqkze.com/2019/tigervnc%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Mon, 23 Dec 2019 22:53:34 +0000</pubDate>
+      
+      <guid>https://blog.vhqkze.com/2019/tigervnc%E4%BD%BF%E7%94%A8/</guid>
+      <description>开启vnc服务 安装 1 sudo dnf install tigervnc-server 开启防火墙 1 2 sudo firewall-cmd --add-service=vnc-server --permanent sudo firewall-cmd --reload 设置连接密码，可以设为只读密码 1 2 3 4 [fedora@parallels ~]$ vncpasswd Password: Verify: Would you like to enter a view-only password (y/n)? n 开启服务 1 2 3 4</description>
+    </item>
+    
+  </channel>
+</rss>
